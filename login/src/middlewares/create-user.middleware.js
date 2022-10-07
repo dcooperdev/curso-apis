@@ -2,12 +2,12 @@ const { createUserWithEmailAndPassword } = require("../controllers/users.control
 
 module.exports.createUser = async (req, res, next) => {
     try {
-        const user = await createUserWithEmailAndPassword(req.user.email, req.user.password);
+        const user = await createUserWithEmailAndPassword(req.user.email, req.user.password, req.user.name, req.user.lastName, req.user.age);
         req.response = user;
         return next();
     } catch (error) {
         res.status(500).json({
-            messaghe: error.message
+            message: error.message
         })
     }
 }

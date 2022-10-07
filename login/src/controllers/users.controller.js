@@ -1,14 +1,17 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { createUserService } = require('../services/create-user.service');
 
 
-const createUserWithEmailAndPassword = async (email, password) => {
+const createUserWithEmailAndPassword = async (email, password, name, lastName, age) => {
+  const response = createUserService(name, lastName, age)
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(password, salt);
   const userData = new User({
     email,
-    password: hash
+    password: hash,
+    profileId : response.id
   });
   
   try {
