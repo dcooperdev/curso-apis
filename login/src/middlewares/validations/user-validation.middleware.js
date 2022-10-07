@@ -7,7 +7,7 @@ module.exports.userValidation = (req, res, next) => {
                 password,
                 name,
                 lastName,
-                age
+                age,
             }
 
             return next();
