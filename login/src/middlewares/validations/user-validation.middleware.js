@@ -1,10 +1,13 @@
 module.exports.userValidation = (req, res, next) => {
     try {
-        const { email, password } = req.body;
-        if (email && password) {
+        const { email, password, name, lastName, age } = req.body;
+        if (email && password && name && lastName && age) {
             req.user = {
                 email,
-                password
+                password,
+                name,
+                lastName,
+                age
             }
 
             return next();
@@ -15,4 +18,4 @@ module.exports.userValidation = (req, res, next) => {
         })
     }
 
-} 
+}
