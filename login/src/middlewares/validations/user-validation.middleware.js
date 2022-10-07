@@ -6,7 +6,7 @@ module.exports.userValidation = (req, res, next) => {
                 email,
                 password
             }
-    
+
             return next();
         }
     } catch (error) {
