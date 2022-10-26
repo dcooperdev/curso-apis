@@ -1,11 +1,12 @@
 module.exports.validateUser = (req, res, next) => {
     try {
-        const { name, lastName, age } = req.body;
+        const { name, lastName, age, password } = req.body;
         if (name && lastName && age) {
             req.user = {
                 name,
                 lastName,
-                age
+                age,
+                password
             }
 
             return next();

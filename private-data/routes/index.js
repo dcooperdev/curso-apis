@@ -10,7 +10,7 @@ router
     .get(
       tokenValidation,
       validateTokenMiddleware,
-      fakeDataMiddleware,
+      // fakeDataMiddleware,
       response
     );
 
