@@ -1,4 +1,7 @@
-module.exports.userValidation = (req, res, next) => {
+import { NextFunction } from "express";
+import { IRequest, IResponse } from "../../configurations/MiddlewaresInterfaces";
+
+export const userValidation = (req: IRequest, res: IResponse, next: NextFunction) => {
     try {
         const { email, password } = req.body;
         if (email && password) {
@@ -15,4 +18,6 @@ module.exports.userValidation = (req, res, next) => {
         })
     }
 
-} 
+}
+
+export default userValidation;
